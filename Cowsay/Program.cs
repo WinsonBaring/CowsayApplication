@@ -1,17 +1,16 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
-using Cowsay.Services;
-using Cowsay.Interfaces;
-using Cowsay.Core;
+using Animal.Core;
+using Animal.Interfaces;
+using Animal.Services;
 
 class Program
 {
     static void Main()
     {
         var serviceProvider = new ServiceCollection()
-            // .AddSingleton<ICowsayService, CowsayService>()
-            .AddSingleton<ICowsayService, Dragon>()
-            .AddSingleton<ICowsayService, Cow>()
+            .AddSingleton<AnimalInterface, Dragon>()
+            // .AddSingleton<AnimalInterface, Cow>()
             .AddSingleton<MenuLoop>()
             .BuildServiceProvider();
 

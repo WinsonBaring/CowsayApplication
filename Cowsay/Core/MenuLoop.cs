@@ -1,17 +1,15 @@
 
 using Microsoft.Extensions.DependencyInjection;
-using Cowsay.Interfaces;
+using Animal.Interfaces;
 
-namespace Cowsay.Core
+namespace Animal.Core
 {
 
     public class MenuLoop {
-        private readonly ICowsayService _cowsayService;
-        private readonly ICowsayService _dragonService;
+        private readonly AnimalInterface _animalService;
         private bool isRunning = true;
-        public MenuLoop(ICowsayService cowsayService, ICowsayService dragonService){
-            _cowsayService = cowsayService;
-            _dragonService = dragonService;
+        public MenuLoop(AnimalInterface animalService){
+            this._animalService = animalService ?? throw new ArgumentNullException(nameof(animalService));
         }
 
         public void Start(){
@@ -23,23 +21,22 @@ namespace Cowsay.Core
                 HandleChoice(choice);
             }
         }
-        private static void DisplayMenu(){
+        private void DisplayMenu(){
             Console.WriteLine("Enter your choice: ");
             Console.WriteLine("Press 'q' to quit");
-            Console.WriteLine("Press '1' to display the cowsay message");
-            Console.WriteLine("Press '2' to display the dragon message");
+            if(_animalService.AnimalType == "Cow"){
+                Console.WriteLine("Press '1' to display the cowsay message");
+            }
+            if(_animalService.AnimalType == "Dragon"){
+                Console.WriteLine("Press '1' to display the dragon message");
+            }
         }
         private void HandleChoice(string choice){
             switch (choice){
                 case "1":
                     string message =  Console.ReadLine() ?? "";
-                    Console.WriteLine(_cowsayService.GenerateCowsayMessage(message));
+                    Console.WriteLine(_animalService.GenerateAnimalMessage(message));
                     Console.WriteLine("You selected option 1");
-                    break;
-                case "2":
-                    string message2 =  Console.ReadLine() ?? "";
-                    Console.WriteLine(_dragonService.GenerateCowsayMessage(message2));
-                    Console.WriteLine("You selected option 2");
                     break;
                 case "q":
                     Console.WriteLine("You selected option q");
