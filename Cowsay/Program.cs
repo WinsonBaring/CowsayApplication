@@ -1,5 +1,5 @@
 ﻿using System;
-// using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Cowsay.Services;
 using Cowsay.Interfaces;
 
@@ -9,16 +9,18 @@ class Program
     {
         // Setup Dependency Injection
         Console.WriteLine("Hello, World!");
-        // var serviceProvider = new ServiceCollection()
-        //     .AddSingleton<ICowsayService, CowsayService>()
-        //     .BuildServiceProvider();
+        var serviceProvider = new ServiceCollection()
+            .AddSingleton<ICowsayService, CowsayService>()
+            .BuildServiceProvider();
+        
+        serviceProvider.AddSingleton<ICowsayService, CowsayService>();
 
-        // var cowsayService = serviceProvider.GetService<ICowsayService>();
+        var cowsayService = serviceProvider.GetService<ICowsayService>();
 
-        // Console.Write("Enter your message: ");
-        // string input = Console.ReadLine();
+        Console.Write("Enter your message: ");
+        string input = Console.ReadLine();
 
-        // string output = cowsayService?.GenerateCowsayMessage(input); // ✅ Fixed method name
-        // Console.WriteLine(output);
+        string output = cowsayService?.GenerateCowsayMessage(input); // ✅ Fixed method name
+        Console.WriteLine(output);
     }
 }
