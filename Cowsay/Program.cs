@@ -2,25 +2,20 @@
 using Microsoft.Extensions.DependencyInjection;
 using Cowsay.Services;
 using Cowsay.Interfaces;
+using Cowsay.Core;
 
 class Program
 {
     static void Main()
     {
-        // Setup Dependency Injection
-        Console.WriteLine("Hello, World!");
         var serviceProvider = new ServiceCollection()
-            .AddSingleton<ICowsayService, CowsayService>()
+            // .AddSingleton<ICowsayService, CowsayService>()
+            .AddSingleton<ICowsayService, Dragon>()
+            .AddSingleton<ICowsayService, Cow>()
+            .AddSingleton<MenuLoop>()
             .BuildServiceProvider();
-        
-        serviceProvider.AddSingleton<ICowsayService, CowsayService>();
 
-        var cowsayService = serviceProvider.GetService<ICowsayService>();
-
-        Console.Write("Enter your message: ");
-        string input = Console.ReadLine();
-
-        string output = cowsayService?.GenerateCowsayMessage(input); // ✅ Fixed method name
-        Console.WriteLine(output);
-    }
+            var menu = serviceProvider.GetRequiredService<MenuLoop>();
+            menu.Start();
+        }
 }
