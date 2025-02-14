@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Animal.Core;
 using Animal.Interfaces;
 using Animal.Services;
@@ -14,7 +13,7 @@ class Program
             .AddSingleton<MenuLoop>()
             .BuildServiceProvider();
 
-            var menu = serviceProvider.GetRequiredService<MenuLoop>();
-            menu.Start();
-        }
+        var menu = serviceProvider.GetRequiredService<MenuLoop>();
+        menu.Start();
+    }
 }
