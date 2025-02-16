@@ -2,7 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CowsayApplication", "CowsayApplication.csproj", "{C22F8FCF-4B96-60BE-E607-3E271B9BD8EE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cowsay", "src\Cowsay\Cowsay.csproj", "{F7F9AD81-DF55-76BB-B56B-DF6B7566B528}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +12,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C22F8FCF-4B96-60BE-E607-3E271B9BD8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C22F8FCF-4B96-60BE-E607-3E271B9BD8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C22F8FCF-4B96-60BE-E607-3E271B9BD8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C22F8FCF-4B96-60BE-E607-3E271B9BD8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7F9AD81-DF55-76BB-B56B-DF6B7566B528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7F9AD81-DF55-76BB-B56B-DF6B7566B528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7F9AD81-DF55-76BB-B56B-DF6B7566B528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7F9AD81-DF55-76BB-B56B-DF6B7566B528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7F9AD81-DF55-76BB-B56B-DF6B7566B528} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0BCD906D-22F8-46FC-A267-FCEAFBA27307}
+		SolutionGuid = {C918AC17-D66F-4296-987B-D7318855F1B6}
 	EndGlobalSection
 EndGlobal
